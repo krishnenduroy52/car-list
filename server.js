@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 try {
-    mongoose.connect(process.env.MONGO_DB, {
+    mongoose.connect(process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
