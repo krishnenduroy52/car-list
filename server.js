@@ -2,13 +2,16 @@ require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const { default: mongoose } = require("mongoose");
+const mongoose = require("mongoose");
 
 app.use(cors());
 app.use(express.json());
 
 try {
-    mongoose.connect(process.env.MONGO_DB, { useNewUrlParser: true });
+    mongoose.connect(process.env.MONGO_DB, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    });
     console.log("Successfull");
 } catch (err) {
     console.log("connection error");
