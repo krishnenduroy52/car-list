@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
 const mainCar = require('../models/carModels')
-
+router.route("/").get((req, res) => {
+    res.send("Welcome to Car-list backend");
+})
 router.route("/car/list").get((req, res) => {
     mainCar.find().then((foundcar) => {
         res.json(foundcar);
